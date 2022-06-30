@@ -1,65 +1,52 @@
 import './App.css';
-import { postLogin, tokenSelector } from './slices/loginSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import React, { useState, useEffect } from "react";
-import { LoginCard, LoginHeader, LoginHeaderTitle, LoginCardBody, LoginInputContainer, LoginInput, LoginEyeIcon, LoginHeaderSubTitle, LoginForgottenPaswword, LoginButton } from './styledComponents/login-card';
+import React, { useEffect } from "react";
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LogIn from './pages/login/login';
+import UserList from './pages/userList/userList';
+import Posts from './pages/posts/posts';
+import Navbar from './components/Navbar';
+
 
 function App() {
+  let isLogged = false
+  let token = useSelector(state => state.loginSlice.token)
 
-  const token = useSelector(state => state.loginSlice.token )
-  const dispatch = useDispatch();
-  const [newCredentials, setNewCredentials] = useState({
-    email: '',
-    password: '',
-  });
-  // const navigate = useNavigate();
-
-
-  useEffect(() => {
-    if(token){
-      // dispatch(clearState());
-      console.log(token)
-    } else {
-      console.log("Fallo")
+  if (token) {
+    isLogged = true;
+  } else {
+    if(localStorage.getItem('token')){
+      token = localStorage.getItem('token')
     }
-  }, [token])
-  
+    isLogged = false;
+  }
 
-  const login = () => {
-    dispatch(postLogin(newCredentials));
-  };
-
-  return (
+  if (token) {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route exact path='/' element={<LogIn />} />
+            <Route path='/user-list' element={<UserList />} />
+            <Route path='/posts' element={<Posts />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  } else {
+    return (
     <div className="App">
-      <header className="App-header">
-       <LoginCard>
-        <LoginHeader>
-          <LoginHeaderTitle>
-            Sign in
-          </LoginHeaderTitle>
-          <LoginHeaderSubTitle>
-            Welcome
-          </LoginHeaderSubTitle>
-          <LoginCardBody>
-            <LoginInputContainer>
-              <LoginInput type="email" placeholder="Email" required onChange={(e) => setNewCredentials({ ...newCredentials, email: e.target.value })}></LoginInput>
-            </LoginInputContainer>
-            <LoginInputContainer>
-              <LoginInput type="password" placeholder="Password" required onChange={(e) => setNewCredentials({ ...newCredentials, password: e.target.value })}></LoginInput>
-              <LoginEyeIcon className="fa fa-eye" eye small></LoginEyeIcon>
-            </LoginInputContainer>
-            <LoginButton onClick={login}>
-              Sing in
-            </LoginButton>
-            <LoginForgottenPaswword>
-              Forgot your pawword?
-            </LoginForgottenPaswword>
-          </LoginCardBody>
-        </LoginHeader>
-       </LoginCard>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element={<LogIn />} />
+          <Route path='/user-list' element={<UserList />} />
+          <Route path='/posts' element={<Posts />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+    )
+  }
 }
 
 
