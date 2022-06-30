@@ -99,6 +99,7 @@ export const LoginButton = styled.button`
     padding-right: 1opx;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 `
 
 export const LoginForgottenPaswword = styled.p`
@@ -107,4 +108,10 @@ export const LoginForgottenPaswword = styled.p`
     color: darkgray;
     justify-content: center;
     cursor: pointer;
+`
+
+export const LoginError = styled.p`
+    color: red;
+    background-color: none;
+    font-size: smaller;
 `
