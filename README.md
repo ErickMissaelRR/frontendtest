@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# React test
+## _User information system_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master) [![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react)
 
-## Available Scripts
+React test is a responsive web page,
+ReactJS-powered HTML5 Markdown editor.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Contains a basic login system
+- Get a dynamic list of users
+- See he/her posts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+React Test uses a number of open source projects to work properly:
 
-### `npm test`
+- [ReactJS] - HTML enhanced for web apps!
+- [markdown-it] - Markdown parser done right. Fast and easy to extend.
+- [Bootstrap] - Great UI boilerplate for modern web apps
+- [axios] - Is a promise-based HTTP Client for node.js
+- [styled-components] - Use the best bits of ES6 and CSS to style your apps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+And of course Dillinger itself is open source with a [public repository][dill]
+ on GitHub.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React Test requires [Node.js](https://nodejs.org/) v16+ to run.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install the dependencies and devDependencies and start the server.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+cd reacttest-app
+npm install
+npm start
+```
 
-### `npm run eject`
+For production environments...
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+npm install --production
+NODE_ENV=production node app
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Want to contribute? Great!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Known issues
 
-## Learn More
+- Clicking on the card to open the sidebar breaks the app
+    
+#### Posible solutions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Implements a correct destructuring for the get petion
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   [markdown-it]: <https://github.com/markdown-it/markdown-it>
+   [Bootstrap]: <https://getbootstrap.com/>
+   [ReactJS]: <http://angularjs.org>
+   [axios]: <https://axios-http.com/docs/intro>
+   [styled-components]: <https://styled-components.com/>
