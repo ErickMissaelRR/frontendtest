@@ -1,5 +1,3 @@
-import React from "react";
-import { ReactDOM } from "react";
 import styled, { css } from "styled-components";
 
 export const LoginCard = styled.div`

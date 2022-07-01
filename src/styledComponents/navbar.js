@@ -66,7 +66,7 @@ export const LinksButton = styled.button`
   font-size: 45px;
   cursor: pointer;
   &:hover {
-    opacity: .90 !important;
+    opacity: .35;
   }
   @media (min-width: 700px) {
     display: none;
