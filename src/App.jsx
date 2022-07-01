@@ -1,11 +1,12 @@
 import './App.css';
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LogIn from './pages/login/login';
 import UserList from './pages/userList/userList';
-import Posts from './pages/posts/posts';
+import Album from './pages/album/album';
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   if (token) {
     isLogged = true;
   } else {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       token = localStorage.getItem('token')
     }
     isLogged = false;
@@ -26,25 +27,25 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Navbar />
-          <Routes>
-            <Route exact path='/' element={<LogIn />} />
-            <Route path='/user-list' element={<UserList />} />
-            <Route path='/posts' element={<Posts />} />
-          </Routes>
+              <Routes>
+                <Route exact path='/' element={<LogIn />} />
+                <Route path='/user-list' element={<UserList isAlbum={false}/>} />
+                <Route path='/album' element={<UserList isAlbum={true} />} />
+                <Route path='/album-list' element={<Album />} />
+              </Routes>
+          {/* <Sidebar /> */}
         </BrowserRouter>
       </div>
     );
   } else {
     return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route exact path='/' element={<LogIn />} />
-          <Route path='/user-list' element={<UserList />} />
-          <Route path='/posts' element={<Posts />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route exact path='/' element={<LogIn />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     )
   }
 }
