@@ -28,8 +28,8 @@ function Navbar() {
       <NavbarInnerContainer>
         <LeftContainer>
           <NavbarLinkContainer>
-            <NavbarLink to="/user-list"> Home</NavbarLink>
-            <NavbarLink to="/posts"> Posts</NavbarLink>
+          <NavbarLink to="/user-list"> Home</NavbarLink>
+            <NavbarLink to="/album"> Album</NavbarLink>
             <LinksButton
               onClick={() => {
                 setExtendNavbar((curr) => !curr);
@@ -46,7 +46,7 @@ function Navbar() {
       {extendNavbar && (
         <NavbarExtendedContainer>
           <NavbarLinkExtended to="/user-list"> Home</NavbarLinkExtended>
-          <NavbarLinkExtended to="/posts"> Posts</NavbarLinkExtended>
+          <NavbarLinkExtended to="/album"> Album</NavbarLinkExtended>
           <NavbarLinkExtended to="/" onClick={signout}> Logout</NavbarLinkExtended>
         </NavbarExtendedContainer>
       )}
